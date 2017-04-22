@@ -3,33 +3,25 @@ var path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
     './src/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'www'),
     filename: 'bundle.js',
-    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
       inject: 'body',
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.HotModuleReplacementPlugin()
   ],
-
-  devServer: {
-    colors: true,
-    historyApiFallback: true,
-    inline: false,
-    port: 3000,
-    hot: true
-  },
 
   module: {
     loaders: [
