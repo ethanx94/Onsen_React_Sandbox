@@ -1,6 +1,6 @@
-var path = require('path'),
-    webpack = require('webpack'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -40,14 +40,14 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         query: {
-          "presets": ["es2015", "stage-0", "react"],
-          "plugins": ["react-hot-loader/babel"]
+          presets: ['es2015', 'stage-0', 'react'],
+          plugins: ['react-hot-loader/babel']
         },
         include: path.join(__dirname, 'src')
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: 'style-loader!css-loader'
       }
     ]
   }
