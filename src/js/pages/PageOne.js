@@ -3,6 +3,7 @@ import { Page, Button } from 'react-onsenui';
 
 import PageFour from './PageFour';
 import Header from '../components/Header';
+import contextWrap from '../contextWrap';
 
 class PageOne extends React.Component {
   constructor(props) {
@@ -31,9 +32,14 @@ class PageOne extends React.Component {
   renderToolbar = () => <Header title={this.props.title} />;
 
   render() {
+    console.log(this.props);
     return (
       <Page renderToolbar={this.renderToolbar}>
         <div style={{ padding: '0 10px' }}>
+          <br />
+          <p>
+            Is today wednesday?: {String(this.props.context.isWednesday)}
+          </p>
           <br />
           <Button onClick={this.increment}> Increment </Button> <br />
           <p>
@@ -46,4 +52,4 @@ class PageOne extends React.Component {
   }
 }
 
-module.exports = PageOne;
+module.exports = contextWrap(PageOne);
