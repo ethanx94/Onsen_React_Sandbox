@@ -4,6 +4,7 @@ import { Page, Tabbar, Tab } from 'react-onsenui';
 import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
+import Settings from './Settings';
 
 class Main extends React.Component {
   renderTabs = () => {
@@ -24,7 +25,7 @@ class Main extends React.Component {
         icon: 'md-info'
       },
       {
-        content: <PageThree key="Page Three" title="Page Three" navigator={this.props.navigator} />,
+        content: <Settings key="Settings" title="Settings" navigator={this.props.navigator} />,
         title: 'Settings',
         icon: 'md-settings'
       }

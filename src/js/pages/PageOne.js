@@ -32,7 +32,6 @@ class PageOne extends React.Component {
   renderToolbar = () => <Header title={this.props.title} />;
 
   render() {
-    console.log(this.props);
     return (
       <Page renderToolbar={this.renderToolbar}>
         <div style={{ padding: '0 10px' }}>
