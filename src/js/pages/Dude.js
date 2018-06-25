@@ -4,9 +4,9 @@ import { Page, Button } from 'react-onsenui';
 import PageFour from './PageFour';
 import Header from '../components/Header';
 import contextWrap from '../contextWrap';
-import { fetchJSON } from '../util/fetchJSON'
+import { fetchJSON } from '../util/fetchJSON';
 
-class PageOne extends React.Component {
+class Dude extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,4 +72,4 @@ class PageOne extends React.Component {
   }
 }
 
-module.exports = contextWrap(PageOne);
+export default contextWrap(Dude);

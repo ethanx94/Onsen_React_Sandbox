@@ -3,7 +3,7 @@ import { Page } from 'react-onsenui';
 
 import Header from '../components/Header';
 
-class PageThree extends React.Component {
+class Egg extends React.Component {
   renderToolbar = () => <Header title={this.props.title} />;
 
   render() {
@@ -17,4 +17,4 @@ class PageThree extends React.Component {
   }
 }
 
-module.exports = PageThree;
+export default Egg;

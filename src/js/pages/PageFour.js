@@ -31,4 +31,4 @@ class PageFour extends React.Component {
   }
 }
 
-module.exports = PageFour;
+export default PageFour;

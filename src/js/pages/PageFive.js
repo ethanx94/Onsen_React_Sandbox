@@ -19,4 +19,4 @@ class PageFive extends React.Component {
   }
 }
 
-module.exports = PageFive;
+export default PageFive;

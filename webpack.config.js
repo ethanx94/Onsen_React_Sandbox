@@ -29,8 +29,8 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      'APPID': JSON.stringify(appId),
-      'APPSECRET': JSON.stringify(appSecret),
+      APPID: JSON.stringify(appId),
+      APPSECRET: JSON.stringify(appSecret),
     }),
   ],
   devServer: {
@@ -57,14 +57,14 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         query: {
-          "presets": ["es2015", "stage-0", "react"],
-          "plugins": ["react-hot-loader/babel"],
+          presets: ['es2015', 'stage-0', 'react'],
+          plugins: ['react-hot-loader/babel'],
         },
         include: path.join(__dirname, 'src'),
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader",
+        loader: 'style-loader!css-loader',
       },
     ]
   }

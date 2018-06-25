@@ -1,26 +1,26 @@
 import React from 'react';
 import { Page, Tabbar, Tab } from 'react-onsenui';
 
-import PageOne from './PageOne';
-import PageTwo from './PageTwo';
-import PageThree from './PageThree';
+import Dude from './Dude';
+import Collection from './Collection';
+import Egg from './Egg';
 import Settings from './Settings';
 
 class Main extends React.Component {
   renderTabs = () => {
     const sections = [
       {
-        content: <PageOne key="Page One" title="Page One" navigator={this.props.navigator} />,
+        content: <Dude key="Page One" title="Page One" navigator={this.props.navigator} />,
         title: 'Dude',
         icon: 'md-info'
       },
       {
-        content: <PageTwo key="Page Two" title="Page Two" navigator={this.props.navigator} />,
+        content: <Collection key="Page Two" title="Page Two" navigator={this.props.navigator} />,
         title: 'Collection',
         icon: 'md-link'
       },
       {
-        content: <PageThree key="Page Three" title="Page Three" navigator={this.props.navigator} />,
+        content: <Egg key="Page Three" title="Page Three" navigator={this.props.navigator} />,
         title: 'Egg',
         icon: 'md-info'
       },
@@ -49,4 +49,4 @@ class Main extends React.Component {
   }
 }
 
-module.exports = Main;
+export default Main;

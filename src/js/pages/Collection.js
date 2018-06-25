@@ -16,11 +16,11 @@ class PageTwo extends React.Component {
       <Page renderToolbar={this.renderToolbar}>
         <div style={{ padding: '0 10px' }}>
           <br />
-            {/* {!isLoading && <img src={todaysDudes[Object.keys(todaysDudes)[currentDude]].source} />} */}
-          </div>
+          {/* {!isLoading && <img src={todaysDudes[Object.keys(todaysDudes)[currentDude]].source} />} */}
+        </div>
       </Page>
     );
   }
 }
 
-module.exports = contextWrap(PageTwo);
+export default contextWrap(PageTwo);

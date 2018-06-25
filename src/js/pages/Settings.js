@@ -3,7 +3,7 @@ import { Page, List, ListItem, Switch } from 'react-onsenui';
 
 import Header from '../components/Header';
 
-class PageThree extends React.Component {
+class Settings extends React.Component {
   state = {
     listViewData: [
       {
@@ -33,11 +33,11 @@ class PageThree extends React.Component {
 
   _renderRow = row =>
     <ListItem tappable onClick={this[row.key]}>
-      <div className='center'>
+      <div className="center">
         {row.displayItems}
       </div>
       <div className="right">
-        {row.type === 'toggle' && <Switch checked={row.enabled}></Switch>}
+        {row.type === 'toggle' && <Switch checked={row.enabled} />}
       </div>
     </ListItem>
 
@@ -53,4 +53,4 @@ class PageThree extends React.Component {
   }
 }
 
-module.exports = PageThree;
+export default Settings;
