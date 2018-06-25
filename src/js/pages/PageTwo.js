@@ -16,7 +16,7 @@ class PageTwo extends React.Component {
       <Page renderToolbar={this.renderToolbar}>
         <div style={{ padding: '0 10px' }}>
           <br />
-            {!isLoading && <img src={todaysDudes[Object.keys(todaysDudes)[currentDude]].source} />}
+            {/* {!isLoading && <img src={todaysDudes[Object.keys(todaysDudes)[currentDude]].source} />} */}
           </div>
       </Page>
     );

@@ -16,9 +16,7 @@ export default class GlobalProvider extends Component {
     };
   }
 
-  async componentDidMount() {
-    /* Todo: workaround FB request limit
-    const notWedUrl = `https://graph.facebook.com/v3.0/1726444857365752/photos?fields=images&access_token=${this.state.token}`;
+  fetchFroggos = async () => {
     let url = `https://graph.facebook.com/v3.0/202537220084441/photos?fields=images,id&limit=100&access_token=${this.state.token}`;
     const { todaysDudes } = this.state;
     try {
@@ -40,35 +38,30 @@ export default class GlobalProvider extends Component {
           source,
           thumbnail,
         });
-        const dudesCollection = JSON.parse(localStorage.getItem('dudesCollection')) || [];
-        const newDudes = [];
-        for (const dude of todaysDudes) {
-          if (!dudesCollection.includes(dude)) {
-            newDudes.push(dude);
-          }
-        }
-        const finalResults = dudesCollection.concat(newDudes);
-        localStorage.setItem('dudesCollection', JSON.stringify(finalResults));
       }
+      const dudesCollection = JSON.parse(localStorage.getItem('dudesCollection')) || [];
+      const newDudes = [];
+      for (const dude of todaysDudes) {
+        if (!dudesCollection.includes(dude)) {
+          newDudes.push(dude);
+        }
+      }
+      const finalResults = dudesCollection.concat(newDudes);
+      localStorage.setItem('dudesCollection', JSON.stringify(finalResults));
       return this.setState({
         todaysDudes,
-        notWednesdayDude: (await fetchJSON(notWedUrl)).data[0].images[0],
         isLoading: false,
       });
     } catch (err) {
       return console.log(err);
     }
-    */
   }
 
   render() {
-    const { godmode, isWednesday, isLoading, todaysDudes } = this.state;
     return (
       <GlobalContext.Provider value={{
-        isWednesday,
-        godmode,
-        isLoading,
-        todaysDudes,
+        ...this.state,
+        fetchFroggos: this.fetchFroggos,
       }}
       >
         {this.props.children}
