@@ -1,6 +1,8 @@
 import React from 'react';
 import { Page, List, ListItem, Switch } from 'react-onsenui';
 
+import contextWrap from '../contextWrap';
+import { GlobalContext } from '../GlobalContext';
 import Header from '../components/Header';
 
 class Settings extends React.Component {
@@ -37,7 +39,15 @@ class Settings extends React.Component {
         {row.displayItems}
       </div>
       <div className="right">
-        {row.type === 'toggle' && <Switch checked={row.enabled} />}
+        {row.type === 'toggle' &&
+          <GlobalContext.Consumer>
+            {context =>
+              <Switch
+                onChange={context.toggleGodmode}
+                checked={row.enabled}
+              />
+          }
+          </GlobalContext.Consumer>}
       </div>
     </ListItem>
 
@@ -53,4 +63,4 @@ class Settings extends React.Component {
   }
 }
 
-export default Settings;
+export default contextWrap(Settings);

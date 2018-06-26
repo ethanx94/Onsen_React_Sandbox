@@ -62,6 +62,14 @@ export default class GlobalProvider extends Component {
       <GlobalContext.Provider value={{
         ...this.state,
         fetchFroggos: this.fetchFroggos,
+        toggleGodmode: async () => {
+          const curGodmode = !this.state.godmode;
+          this.setState({ isLoading: true, godmode: curGodmode });
+          if (curGodmode) {
+            await this.fetchFroggos();
+          }
+          this.setState({ isLoading: false, godmode: true, isWednesday: !this.state.isWednesday });
+        },
       }}
       >
         {this.props.children}

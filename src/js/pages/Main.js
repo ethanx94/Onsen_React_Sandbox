@@ -10,17 +10,17 @@ class Main extends React.Component {
   renderTabs = () => {
     const sections = [
       {
-        content: <Dude key="Page One" title="Page One" navigator={this.props.navigator} />,
+        content: <Dude key="Dude" title="Dude" navigator={this.props.navigator} />,
         title: 'Dude',
         icon: 'md-info'
       },
       {
-        content: <Collection key="Page Two" title="Page Two" navigator={this.props.navigator} />,
+        content: <Collection key="Collection" title="Collection" navigator={this.props.navigator} />,
         title: 'Collection',
         icon: 'md-link'
       },
       {
-        content: <Egg key="Page Three" title="Page Three" navigator={this.props.navigator} />,
+        content: <Egg key="Egg" title="Egg" navigator={this.props.navigator} />,
         title: 'Egg',
         icon: 'md-info'
       },

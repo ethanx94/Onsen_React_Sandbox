@@ -7,16 +7,12 @@ import contextWrap from '../contextWrap';
 import { fetchJSON } from '../util/fetchJSON';
 
 class Dude extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      count: 0,
-      notWednesdayDude: {},
-      todaysDudes: [],
-      token: `${APPID}|${APPSECRET}`,
-    };
-  }
+  state = {
+    isLoading: true,
+    currentDude: 0,
+    notWednesdayDude: {},
+    token: `${APPID}|${APPSECRET}`,
+  };
 
   async componentWillMount() {
     const notWedUrl = `https://graph.facebook.com/v3.0/1726444857365752/photos?fields=images&access_token=${this.state.token}`;
@@ -27,11 +23,10 @@ class Dude extends React.Component {
     });
   }
 
-  increment = () => {
-    let x = this.state.count;
-    x++;
-    this.setState({ count: x });
-  }
+  getNextDude = () =>
+    this.state.currentDude < 4
+      ? this.setState({ currentDude: this.state.currentDude + 1 })
+      : this.setState({ currentDude: 0 });
 
   pushPage = () =>
     this.props.navigator.pushPage({
@@ -46,24 +41,25 @@ class Dude extends React.Component {
   renderToolbar = () => <Header title={this.props.title} />;
 
   render() {
-    const { todaysDudes, notWednesdayDude, isLoading } = this.state;
-    const { isWednesday } = this.props.context;
+    const { notWednesdayDude, isLoading, currentDude } = this.state;
+    const { isWednesday, todaysDudes } = this.props.context;
     return (
       <Page renderToolbar={this.renderToolbar}>
         <div style={{ padding: '0 10px' }}>
           <br />
           <p>
             {!isLoading &&
-              <img src={isWednesday ? todaysDudes[Object.keys(todaysDudes)[currentDude]].source : notWednesdayDude.source} />}
-            {JSON.stringify(this.state)}
+              <img
+                style={{ width: '100%' }}
+                onClick={this.getNextDude}
+                alt="todaysDudes"
+                src={isWednesday
+                ? todaysDudes[Object.keys(todaysDudes)[currentDude]].source
+                : notWednesdayDude.source}
+              />}
           </p>
           <p>
             Is today wednesday?: {String(this.props.context.isWednesday)}
-          </p>
-          <br />
-          <Button onClick={this.increment}> Increment </Button> <br />
-          <p>
-            count {this.state.count}
           </p>
           <Button onClick={this.pushPage}> Next page </Button>
         </div>
