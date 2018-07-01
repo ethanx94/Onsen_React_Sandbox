@@ -7,11 +7,16 @@ import Header from '../components/Header';
 
 class PageTwo extends React.Component {
   renderToolbar = () => <Header title={`${this.props.title} (${this.state.myCollection.length})`} />;
-
-  state = {
-    myCollection: JSON.parse(localStorage.getItem('dudesCollection'))
-      .map(d => Object.assign(d, { src: d.source })) || [],
-  };
+  constructor(props) {
+    super(props);
+    const myCollection = JSON.parse(localStorage.getItem('dudesCollection')) || [];
+    if (myCollection.length) {
+      myCollection.map(d => Object.assign(d, { src: d.source }));
+    }
+    this.state = {
+      myCollection,
+    };
+  }
 
   render() {
     return (

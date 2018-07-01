@@ -19,8 +19,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/',
+    filename: 'bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -34,14 +33,13 @@ module.exports = {
     }),
   ],
   devServer: {
-    colors: true,
     historyApiFallback: true,
     inline: false,
     port: 3000,
     hot: true,
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader?limit=10000&minetype=application/font-woff',
@@ -55,7 +53,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['es2015', 'stage-0', 'react'],
           plugins: ['react-hot-loader/babel'],
