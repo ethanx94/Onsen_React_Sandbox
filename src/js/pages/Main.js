@@ -1,34 +1,34 @@
 import React from 'react';
 import { Page, Tabbar, Tab } from 'react-onsenui';
 
-import Dude from './Dude';
-import Collection from './Collection';
-import Egg from './Egg';
-import Settings from './Settings';
+import Bio from './Bio';
+import Links from './Links';
+import Skills from './Skills';
+import Projects from './Projects';
 
 class Main extends React.Component {
   renderTabs = () => {
     const sections = [
       {
-        content: <Dude key="Dude" title="Dude" navigator={this.props.navigator} />,
-        title: 'Dude',
+        content: <Bio key="Bio" navigator={this.props.navigator} />,
+        title: 'Bio',
+        icon: 'md-home'
+      },
+      {
+        content: <Skills key="Skills" navigator={this.props.navigator} />,
+        title: 'Skills',
         icon: 'md-info'
       },
       {
-        content: <Collection key="Collection" title="Collection" navigator={this.props.navigator} />,
-        title: 'Collection',
+        content: <Projects key="Projects" navigator={this.props.navigator} />,
+        title: 'Projects',
+        icon: 'md-settings'
+      },
+      {
+        content: <Links key="Links" navigator={this.props.navigator} />,
+        title: 'Links',
         icon: 'md-link'
       },
-      {
-        content: <Egg key="Egg" title="Egg" navigator={this.props.navigator} />,
-        title: 'Egg',
-        icon: 'md-info'
-      },
-      {
-        content: <Settings key="Settings" title="Settings" navigator={this.props.navigator} />,
-        title: 'Settings',
-        icon: 'md-settings'
-      }
     ];
 
     return sections.map((section) => ({

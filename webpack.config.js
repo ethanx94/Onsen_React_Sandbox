@@ -13,7 +13,7 @@ module.exports = {
   entry: [
     'babel-polyfill',
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',
     './src/index',
   ],
@@ -35,7 +35,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     inline: false,
-    port: 3000,
+    port: 3001,
     hot: true,
   },
   module: {

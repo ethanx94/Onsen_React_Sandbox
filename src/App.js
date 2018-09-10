@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigator } from 'react-onsenui';
 
 import Main from './js/pages/Main';
-import GlobalProvider from './js/GlobalProvider';
 import './css/main.css';
 import '../node_modules/onsenui/css/onsenui.css';
 import '../node_modules/onsenui/css/onsen-css-components.css';
@@ -16,15 +15,13 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <GlobalProvider>
-        <Navigator
-          initialRoute={{
-            component: Main,
-            props: { key: 'main' }
-          }}
-          renderPage={this.renderPage}
-        />
-      </GlobalProvider>
+      <Navigator
+        initialRoute={{
+          component: Main,
+          props: { key: 'main' }
+        }}
+        renderPage={this.renderPage}
+      />
     );
   }
 }
